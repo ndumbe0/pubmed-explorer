@@ -1,0 +1,6 @@
+sources:
+  - name: "key_pubmed"
+    type: file
+    path: data/key_pubmed.csv
+    enabled: true
+    description: "Key PubMed articles dataset"

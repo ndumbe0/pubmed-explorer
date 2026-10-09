@@ -1,0 +1,24 @@
+name: Fetch Sources (disabled by default)
+
+on:
+  # Disabled by default - enable manually
+  workflow_dispatch:
+  # schedule:
+  #   - cron: '0 0 * * 0'  # Weekly on Sunday
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+    - name: Install dependencies
+      run: |
+        cd backend
+        pip install -r requirements.txt
+    - name: Fetch sources
+      run: |
+        python scripts/fetch_sources.py
